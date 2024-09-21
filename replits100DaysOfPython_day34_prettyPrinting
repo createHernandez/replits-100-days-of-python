@@ -5,17 +5,53 @@ import time #sleep()
 #test list 
 email_list = ["john@test.com", "sian@coolhairsian.com", "bobthebuilder@gmail.com", "billyjoel@aol.com", "samanthatabatha@me.com", "billyandmandy@cn.com", "another@email.com", "andanother@gmail.com", "oooyeah@gmail.com", "something@gmail.com", "thingsandstuff@gmail.com"]
 
+# def print_email_list():
+#     print("Printing the current email list...\n")
+#     time.sleep(1)
+
+#     # total_characters = pipe + space + 2 + space + pipe + space + email_length + space + pipe
+#     total_characters = 9
+
+#     for email in range(0, len(email_list)): 
+#         print(f"{email + 1:>2}: {email_list[email]}")
+#         time.sleep(.25)
+
+#     print("\nEnd of the list.")
+#     time.sleep(5)
+
 def print_email_list():
+    # Look: 
+    # ===============================================
+    # |  1 | someemail@gmail.com                    |
+    # |  2 | anotheremailthatisreallylong@gmail.com |
+    # |  3 | bobthebuilder@build.com                |
+
+    # 123456789
+    # |    | email | 
+ 
+    longest_email_length = -1
+
+    for email in range(0, len(email_list)): 
+        if longest_email_length < len(email_list[email]): 
+            longest_email_length = email 
+    
+    print(longest_email_length)
+    line = '-'
+
+    print(line * longest_email_length + line * 9)
+        
     print("Printing the current email list...\n")
     time.sleep(1)
 
-    # total_characters = pipe + space + 2 + space + pipe + space + email_length + space + pipe
-    total_characters = 9
+    line = '-'
+    space = ' '
 
+    print(line * 9 + line * longest_email_length)
     for email in range(0, len(email_list)): 
-        print(f"{email + 1:>2}: {email_list[email]}")
+        space = space * (longest_email_length - len(email_list[email]))
+        print(f"| {email + 1:>2} | {email_list[email]} |")
         time.sleep(.25)
-
+    print(line * 9 + line * longest_email_length)
     print("\nEnd of the list.")
     time.sleep(5)
 
@@ -93,7 +129,7 @@ while True:
 
     print_main_menu()
 
-    choice = int(input(">> ").strip())
+    choice = int(input(">> "))
     print()
 
     if choice == 1: 
