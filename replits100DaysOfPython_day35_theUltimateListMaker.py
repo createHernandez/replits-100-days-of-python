@@ -22,7 +22,7 @@ def view():
         time.sleep(1)
 
 def add(): 
-    task = input("What task would you like to add?\n>> ")
+    task = input("What task would you like to add?\n>> ").strip().lower().capitalize()
     print()
 
     if task not in todo_list: 
@@ -41,10 +41,10 @@ def add():
 
 def edit(): 
     view()
-    original_task = input("Which task would you like to edit?\n>> ")
+    original_task = input("Which task would you like to edit?\n>> ").strip().lower().capitalize()
     print()
 
-    replacement_task = input("What task would you like instead?\n>> ")
+    replacement_task = input("What task would you like instead?\n>> ").strip().lower().capitalize()
     print()
 
     if original_task in todo_list and replacement_task not in todo_list: 
@@ -59,7 +59,7 @@ def edit():
 
 def remove(): 
     view()
-    task = input("What task would you like to remove?\n>> ")
+    task = input("What task would you like to remove?\n>> ").strip().lower().capitalize()
     print()
 
     if task in todo_list: 
