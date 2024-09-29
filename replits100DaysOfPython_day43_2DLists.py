@@ -13,18 +13,18 @@ blank_bingoCard = [[None,  None,   None],
 
 # populate the card with random nums between 0 and 90 
 def create_blank_bingoCard(): 
-    ran_num_list = []
+    random_numbers_list = []
     ran_num_list_index = 0
 
-    for index in range(8): 
-        ran_num_list.append(random.randint(1, 90))
+    for index in range(9): 
+        random_numbers_list.append(random.randint(1, 90))
 
-    ran_num_list.sort()
+    random_numbers_list.sort()
 
     for row_index in range(len(blank_bingoCard)): 
         for column_index in range(len(blank_bingoCard[row_index])): 
             if blank_bingoCard[row_index][column_index] == None: 
-                blank_bingoCard[row_index][column_index] = ran_num_list[ran_num_list_index]
+                blank_bingoCard[row_index][column_index] = random_numbers_list[ran_num_list_index]
                 ran_num_list_index += 1
 
 def print_bingoCard(): 
