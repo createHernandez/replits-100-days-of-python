@@ -8,7 +8,7 @@ mokeBeast = {"Beast Name": None,
 
 def get_mokebeast(): 
   for key in mokeBeast: 
-    mokeBeast[key] = input(f"{key}: ").strip()
+    mokeBeast[key] = input(f"{key}: ").strip().title()
   print()
 
 def print_main_menu(): 
