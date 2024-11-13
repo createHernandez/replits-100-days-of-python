@@ -20,7 +20,6 @@ def display_main_menu():
     print("Enter 2 - to add a task.")
     print("Enter 3 - to remove a task.") 
     print("Enter 4 - to edit a task.") 
-    print("Enter 5 - to get a random task to accomplish.") 
     print("Enter nothing to exit.")
 
 def view_all(): 
