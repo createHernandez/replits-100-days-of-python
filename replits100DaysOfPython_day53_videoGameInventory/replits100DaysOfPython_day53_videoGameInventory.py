@@ -32,28 +32,24 @@ def print_main_menu():
 def add_item(): 
     new_item = input("Item to add > ").strip().lower().capitalize()
 
-    while True: 
-        try: 
-            inventory.append(new_item)
-        except: 
-            print("ERROR: Unable to add item.\n")
-        else: 
-            if new_item in inventory: 
-                print("Added\n")
-            break
+    try: 
+        inventory.append(new_item)
+    except: 
+        print("ERROR: Unable to add item.\n")
+    else: 
+        if new_item in inventory: 
+            print("Added\n")
 
 def remove_item(): 
     item = input("Item to remove > ").strip().lower().capitalize()
 
-    while True: 
-        try: 
-            inventory.remove(item)
-        except: 
-            print("ERROR: Unable to add item.\n")
-        else: 
-            if item in inventory: 
-                print("Removed\n")
-                break
+    try: 
+        inventory.remove(item)
+    except: 
+        print("ERROR: Unable to add item.\n")
+    else: 
+        if item in inventory: 
+            print("Removed\n")
 
 def view_inventory():
     already_printed = []
