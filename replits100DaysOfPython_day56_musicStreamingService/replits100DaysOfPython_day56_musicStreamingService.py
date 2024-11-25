@@ -8,26 +8,28 @@ print("Building...\n")
 with open("replits100DaysOfPython_day56_musicStreamingService/100MostStreamedSongs.csv") as file: 
     reader = csv.DictReader(file)
 
-    # declare an array for the list of artists processed 
-    artists_folders = []
-    song_files = []
-
     for row in reader: 
-        dir_name = os.path.join("replits100DaysOfPython_day56_musicStreamingService", str(row["Artist(s)"]))
+        # declare an array for the list of artists processed 
+        artists_folders = os.listdir() 
+
+        artist_name = row["Artist(s)"].strip().lower().title()
+
+        dir_name = os.path.join("replits100DaysOfPython_day56_musicStreamingService", artist_name)
         
-        if row["Artist(s)"] not in artists_folders: 
-            print(f"Adding... {row['Artist(s)']},", end=" ")
+        if artist_name not in artists_folders: 
+            print(f"Adding... {artist_name},", end=" ")
 
             # make a folder for the artist 
             os.mkdir(dir_name)
 
-            if row["Song"] not in song_files: 
-                # make a file for each song 
-                print(f"{row['Song']}")
+            song_name = row["Song"].strip().lower().title()
 
-                file_name = os.path.join(dir_name, str(row["Song"]))
+            # make a file for each song 
+            print(f"{song_name}")
 
-                f = open(file_name, "w")
-                f.close() 
+            file_name = os.path.join(dir_name, song_name)
+
+            f = open(file_name, "w")
+            f.close() 
 
 print()
